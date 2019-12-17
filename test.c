@@ -19,5 +19,6 @@ int main ()
      }if(pow3 > 0)
        printf("%d is %d power of 3", a,pow3 );
       else printf("Wrong number !");
+     printf("Проверка русского.");
 return 0;
 }
