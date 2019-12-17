@@ -29,6 +29,6 @@
     функций.
 
 
-Каталоги **sort-algs/** и **search-algs/** будут описаны позже.
+Каталоги [**sort-algs/**](https://github.com/Panikowsky-M/C-examples/tree/master/sort-algs) и [**search-algs/**](https://github.com/Panikowsky-M/C-examples/tree/master/search-algs) будут описаны позже.
 Каталог  [**practice-pp/**](https://github.com/Panikowsky-M/C-examples/tree/master/practice-pp) содержит практические работы по дисциплине процедурное программирование, в этом году к моему счастью на языке C++. На данный момент решена задача с выводом пользовательской строки и на этапе изготовления решение квадратного уравнения.
 
