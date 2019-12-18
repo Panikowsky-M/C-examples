@@ -30,5 +30,4 @@
 
 
 Каталоги [**sort-algs/**](https://github.com/Panikowsky-M/C-examples/tree/master/sort-algs) и [**search-algs/**](https://github.com/Panikowsky-M/C-examples/tree/master/search-algs) будут описаны позже.
-Каталог  [**practice-pp/**](https://github.com/Panikowsky-M/C-examples/tree/master/practice-pp) содержит практические работы по дисциплине процедурное программирование, в этом году к моему счастью на языке C++. На данный момент решена задача с выводом пользовательской строки и на этапе изготовления решение квадратного уравнения.
-
+Каталог  [**practice-pp/**](https://github.com/Panikowsky-M/C-examples/tree/master/practice-pp) содержит практические работы по дисциплине процедурное программирование, в этом году к моему счастью на языке C++. На данный момент решена задача с выводом пользовательской строки и решенная задача с квадратным уравнением, которое надо довести до ума. А лежит оно вот здесь [**practice-pp/**](https://github.com/Panikowsky-M/C-examples/tree/master/practice-pp) в файле **pr1t4.c**
