@@ -17,10 +17,10 @@ int main()
   res = di(a,b,c);
   if(res < 0)
   {printf("D < 0. There is 2 complex roots!\n");}
-  else printf("D = %lf\n 2 roots of Real.\n",res);
-  root1 = (-1*b + sqrt(res))/2*a; 
-  root2 = (-1*b - sqrt(res))/2*a;
-  printf("Ive got 2 roots of Real: %lf,%lf\n", root1,root2);
+  else {printf("D = %lf\n 2 roots of Real.\n",res);
+  root1 = (-1*b + sqrt(res))/(2*a); 
+  root2 = (-1*b - sqrt(res))/(2*a);
+  printf("Ive got 2 roots of Real: %lf,%lf\n", root1,root2);}
   
   return 0;
 }
