@@ -24,17 +24,14 @@ void Bubble(int Arr[], int s){ //Непосредственно функция �
 
 int main()
 {
-
-  int a[6000];
-  int n = 6000;
-  int b[7];
-       for(int q = 0; q < 7; q++){
-	  scanf("%d", &b[q]);
-}
-      /* for(int q = 0; q < n; q++){
-	       a[q] = rand()%10000;
-	}*/
-	Bubble(b,7);
+  int input_value = 0;
+  scanf("%d",&input_value);
+  int a[input_value];
+  int n = input_value;
+       for(int i = 0; i < n; i++){
+	       a[i] = rand()%10000;
+	}
+	Bubble(a,input_value);
 
 return 0;
 }
