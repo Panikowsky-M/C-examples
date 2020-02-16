@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <time.h>
 
-void swap(int *cur, int *next){
+void swap(int *cur, int *next){ //Ф-ия реализующия непосредственно обмен
 	int t = *cur;
 	*cur = *next;
         *next = t;
 }
 
-void Bubble(int Arr[], int s){
-	     int c = 0;
-	     int m = 0;
+void Bubble(int Arr[], int s){ //Непосредственно функция сортировки
+	     int c = 0; //Счетчик сравнений
+	     int m = 0;//Счетчик обмена
 
              for(int i = 0; i < s; i++){
 		for(int j = 0; j < s-i-1; j++ ){
@@ -27,10 +27,14 @@ int main()
 
   int a[6000];
   int n = 6000;
-       for(int q = 0; q < n; q++){
+  int b[7];
+       for(int q = 0; q < 7; q++){
+	  scanf("%d", &b[q]);
+}
+      /* for(int q = 0; q < n; q++){
 	       a[q] = rand()%10000;
-	}
-	Bubble(a,n);
+	}*/
+	Bubble(b,7);
 
 return 0;
 }
