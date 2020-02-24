@@ -1,11 +1,11 @@
   #include <stdio.h>
   #include <stdlib.h>
 
-void swap(int *cur, int *next){
+/*void swap(int *cur, int *next){
            int t = *cur;
            *cur = *next;
            *next = t;
-   }
+   }*/
 
 
 void dirSelSort(int *num, int s)
@@ -22,10 +22,10 @@ void dirSelSort(int *num, int s)
                  tmp = num[i];
  		 num[i] = num[min];
  	         num[min] = tmp; m++;
-		}//printf("C = %d\n M = %d\n", c,m);
+		}printf("C = %d\n M = %d\n", c,m);
 }     	     
 
-void myInvSort(int *Arr, int s){
+/*void myInvSort(int *Arr, int s){
 	int maxIdx;
 	int i,j,c1,m1 = 0;
    	for(i; i < s-1; i++)
@@ -39,7 +39,7 @@ void myInvSort(int *Arr, int s){
 				}swap(&Arr[maxIdx],&Arr[i]); m1++;
 		    }printf("C = %d, M= %d",c1,m1);
 }
-}
+}*/
 
 int main()
 {
@@ -52,8 +52,8 @@ int main()
                  rand()%100;
                   }
              printf("\n");
-         myInvSort(dirSelSort(tArr,x));    
-        /*for(int i = 0; i < 6; ++i)
+            dirSelSort(tArr,x);
+          /*for(int i = 0; i < 6; ++i)
               {
                printf("%d:  ",tArr[i]);
                }*/
