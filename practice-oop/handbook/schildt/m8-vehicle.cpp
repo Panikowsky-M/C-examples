@@ -5,8 +5,15 @@ public:
 	int passengers;
 	int fuelcap;
 	int mpg;
+	Vehicle(int p, int f, int m);
 	int range();
 	};
+
+    Vehicle::Vehicle(int p, int f, int m) {
+    	passengers = p;
+	fuelcap = f;
+	mpg = m;
+	}
 
 int Vehicle::range()
 {
@@ -15,17 +22,9 @@ int Vehicle::range()
 
 int main()
 {
-   Vehicle minivan;
-   Vehicle sportcar;
+   Vehicle minivan(7,6,15);
+   Vehicle sportcar(2,14,12);
 int range1, range2;
-
-minivan.passengers = 7;
-minivan.fuelcap = 16;
-minivan.mpg = 21;
-
-sportcar.passengers = 2;
-sportcar.fuelcap = 14;
-sportcar.mpg = 21;
 
 range1 = minivan.range();
 range2 = sportcar.range();
