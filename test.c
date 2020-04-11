@@ -2,6 +2,7 @@
 
 int main ()
 {
+    int s0 = 4;
     int s = 5;
     int A[s];
     char mystr[] = "testtesttest";
