@@ -1,54 +1,54 @@
 #include<iostream>
 #include"headers/structio.h"
+#include"headers/list.h"
 #include"headers/stackq.h"
+#include"headers/arrq.h"
 #include"headers/rpn.h"
-//#include"headers/polnot-bad.h"
 using namespace std;
 
 int main()
 {
-	int i = 8;
+	int i = 6;
 	
-	while (i != 5)
+	while (i != 4)
 	{
-		cout << "\nВведите функцию,для обработки структуры данных.";
-		cout << "\n1 - Стек,очередь\n2 - Тоже, только на массиве\n3 - Польский калькулятор\n\
-		4 - Второй Польский вариант\n";
-		cout << "5 - Выход\n";
+		cout << "\nВызовите функцию из списка.";
+		cout << "\n1 - Очередь на односвязном списке";
+		cout <<"\n2 - То же только на массиве\n";
+		cout << "\n3 - Польский калькулятор.\n4 - Выход\n";
 		cin >> i;
 		switch (i)
 
 		{
+
 		case 1:
 		{
-			SteckQueue();
+			StackQueue();
 			break;
 		}
+		
 		case 2:
 		{
-			cout<<"\n--\nЕще не готово, но скоро заработает							:(\n";
+			QueueMenu();
 			break;
 		}
+	
 		case 3:
 		{
+
 			rpn_calc();
 			break;
 		}
+
 		case 4:
-		{
-			cout<<"\n--\nЕще не готово, но скоро заработает							:(\n";
-			break;
-		}
-		case 5:
-		{
 			break;
 		default:
-		
-			cout << "Такой функции не предусмотрено.";
-			cout << "Повторите ввод.";
+		{
+			cout << "Такой фуекции не предусмотрено.";
+			cout << "\nПовторите ввод\n";
 		}
 		}
-       }
+	}
 
 return 0;
 }

@@ -1,72 +1,70 @@
 #pragma once
 #include<iostream>
 using namespace std;
-/*Ñòðóêòóðà.*/
+/*Список.*/
 struct stop
 {
-	char key;                                         //Èíôîðìàöèîííàÿ ÷àñòü ñòðóêòóðû.
-	int otdal;                                        //Èíôîðìàöèîííàÿ ÷àñòü ñòðóêòóðû.											   
+	char key;                                         //Информационная часть структуры.
+	int otdal;                                        
 };
 
-/*Ñòðóêòóðà.*/
 template<typename T>
 struct List
 {
-	T key;                                         //Èíôîðìàöèîííàÿ ÷àñòü ñòðóêòóðû.
-	List* next;                                    //Àäðåñ ñëåäóþùåãî ýëåìåíòà ñïèñêà.
-	List* prev;                                    //Àäðåñ ïðåäûäóùåãî ýëåìåíòà ñïèñêà.
+	T key;                                         
+	List* next;                                    //Адрес следующего
+	List* prev;                                    //Адрес предыдущего
 };
 
-/*Äîáàâëåíèå ýëåìåíòà â ñïèñîê.Â êîíåö.*/
+//Добавление в хвост
 template<typename T>
 List<T> * PushBack(List<T> *lst, T t)
 {
 	List<T> *p;
-	List<T> *Current = new List<T>;                   // Âûäåëåíèå ïàìÿòè.
-    /*Åñëè ñïèñîê íå ïóñòîé äîáàâëÿåì ýëåìåíò ñïðàâà.*/
+	List<T> *Current = new List<T>;                   // Выделение памяти.
+
 	if (lst != NULL)
 	{
-		p = lst->next;                               // Ñîõðàíåíèå óêàçàòåëÿ íà ñëåäóþùèé ýëåìåíò ñïèñêà.
-		lst->next = Current;                         // Ïðåäûäóùèé ýëåìåíò ñïèñêà óêàçûâàåò íà ñîçäàâàåìûé.
-		Current->key = t;                            // Ñîõðàíåíèå ïîëÿ äàííûõ äîáàâëÿåìîãî ýëåìåíòà ñïèñêà.
-		Current->next = p;                           // Ñîçäàííûé ýëåìåíò ñïèñêà óêàçûâàåò íà ñëåäóþùèé ýëåìåíò ñïèñêà.
-		Current->prev = lst;                         // Ñîçäàííûé ýëåìåíò ñïèñêà óêàçûâàåò íà ïðåäûäóùèé ýëåìåíò ñïèñêà.
-		if (p != NULL)                               // Ïðîâåðêà óêàçàòåëÿ
+		p = lst->next;            // Сохранение указателя на следующий
+		lst->next = Current;      // Предыдущий указывает на создаваемый
+		Current->key = t;         // Сохранение поля данных добавляемого
+		Current->next = p;        // Созданный указывает на следующий
+		Current->prev = lst;      // Созданный указывает на предыдущий
+		if (p != NULL)            // Проверка указателя
 			p->prev = Current;
 	}
-	else //Èíèöèàëèçèðóåì ñïèñîê.
+	else // Инициализирую список
 	{
 		Current->key = t;
-		Current->next = NULL;                        // Óêàçàòåëü íà ñëåäóþùèé óçåë.
-		Current->prev = NULL;                        // Óêàçàòåëü íà ïðåäûäóùèé óçåë.
+		Current->next = NULL;
+		Current->prev = NULL;
 	}
 	return(Current);
 }
 
-/*Äîáàâëåíèå ýëåìåíòà â ñïèñîê. Â íà÷àëî*/
+
 template<typename T>
 List<T> * PushFront(List<T> *lst, T t)
 {
 	List<T> *p;
-	List<T> *Current = new List<T>;                         // Âûäåëåíèå ïàìÿòè.
+	List<T> *Current = new List<T>;
 	List<T>* first;
-	/*Åñëè ñïèñîê íå ïóñòîé äîáàâëÿåì ýëåìåíò ñëåâà.*/
 	if (lst != NULL)
 	{
 		first = lst;
-		p = first->prev;                           // Ñîõðàíåíèå óêàçàòåëÿ íà ñëåäóþùèé ýëåìåíò ñïèñêà.
-		first->prev = Current;                     // Ïðåäûäóùèé ýëåìåíò ñïèñêà óêàçûâàåò íà ñîçäàâàåìûé.
-		Current->key = t;                          // Ñîõðàíåíèå ïîëÿ äàííûõ äîáàâëÿåìîãî ýëåìåíòà ñïèñêà.
-		Current->next = first;                     // Ñîçäàííûé ýëåìåíò ñïèñêà óêàçûâàåò íà ñëåäóþùèé ýëåìåíò ñïèñêà.
-		Current->prev = p;                         // Ñîçäàííûé ýëåìåíò ñïèñêà óêàçûâàåò íà ïðåäûäóùèé ýëåìåíò ñïèñêà.
-		if (p != NULL)                             // Ïðîâåðêà óêàçàòåëÿ
+		p = first->prev;
+		first->prev = Current;
+		Current->key = t;
+		Current->next = first;
+		Current->prev = p; 
+		if (p != NULL) 
 			p->next = Current;
 	}
-	else //Èíèöèàëèçèðóåì ñïèñîê.
+	else 
 	{
 		Current->key = t;
-		Current->next = NULL;                      // Óêàçàòåëü íà ñëåäóþùèé óçåë.
-		Current->prev = NULL;                      // Óêàçàòåëü íà ïðåäûäóùèé óçåë.
+		Current->next = NULL;
+		Current->prev = NULL;
 	}
 	return(Current);
 }
@@ -121,9 +119,7 @@ void OutputList(List<T>*first)
 	}
 }
 
-/*Ïîäïðîãðàììà, êîòîðàÿ íàõîäèò â ñïèñêå
-äëèíû ïðåôèêîñîâ(ñóôôèêñîâ) ñ íóæíûì èíäåêñîì.
-ind - èíäåêñ ïðåôèêñà.*/
+// Возвращаем длины префиксов(суффиксов) с нужным индексом ind
 template<typename T>
 T Findind(List<T>* c, int ind)
 {
@@ -138,16 +134,13 @@ T Findind(List<T>* c, int ind)
 	return K->key;
 }
 
-/*Ïîäïðîãðàììà, êîòîðàÿ íàõîäèò â ñïèñêå
-äëèíû ïðåôèêîñîâ(ñóôôèêñîâ) ñ íóæíûì èíäåêñîì.
-ind - èíäåêñ ïðåôèêñà.*/
 template<typename T>
 int FindMaxcount(List<T>* c, int ind)
 {
 	List<T> *K = c;
-	int max = 0;             //Ìàêñèìàëüíàÿ äëèíà ñóôôèêñà.
+	int max = 0;             // Максимальная длина суффикса
 	int i = 0;
-	/*Ïîèñê ìàêñìàëüíîé äëèíû.*/
+	// Поиск максимальной длины
 	while (i < ind)
 	{
 		if (K->key>max)
@@ -161,64 +154,62 @@ int FindMaxcount(List<T>* c, int ind)
 }
 
 
-/*Ïîäïðîãðàììà, êîòîðàÿ âûïîëíÿåò
-óäàëåíèå ïåðâîãî ýëåìåíòà ñïèñêà. */
+// Удаляем с головы
+
 template<typename T>
 List<T>* PopFront(List<T> *h)
 {
 	List<T> *p = h;
 	if (h != NULL)
 	{
-		p = h->next;						//ýëåìåíò, ïðåäøåñòâóþùèé h
-		if (h->next != NULL)				//ïðè íàëè÷èè ýëåìåíòà ïîñëå óäàëÿåìîãî
-			p->prev = h->prev;				//ïåðåñòàâëÿåì óêàçàòåëü ñ óäàëÿåìîãî íà ñëåäóþùèé
-		free(h);                            //îñâîáîæäàåì ïàìÿòü óäàëÿåìîãî ýëåìåíòà
+		p = h->next;                   // Предшественник h
+		if (h->next != NULL)	       // При наличии элемента после удаляемого
+			p->prev = h->prev;     // Переставить указатель
+		free(h);                       // Освобождаем память
 	}
 	return(p);
 }
 
-/*Ïîäïðîãðàììà, êîòîðàÿ âûïîëíÿåò
-óäàëåíèå ïîñëåäíåãî ýëåìåíòà ñïèñêà. */
+// Удаляем с хвоста
 template<typename T>
 List<T>* PopBack(List<T> *h)
 {
 	List<T> *p = h;
 	if (h != NULL)
 	{
-		p = h->prev;						//ýëåìåíò, ïðåäøåñòâóþùèé h
-		if (h->prev != NULL)				//ïðè íàëè÷èè ýëåìåíòà ïîñëå óäàëÿåìîãî
-			p->next = h->next;				//ïåðåñòàâëÿåì óêàçàòåëü ñ óäàëÿåìîãî íà ñëåäóþùèé
-		free(h);							//îñâîáîæäàåì ïàìÿòü óäàëÿåìîãî ýëåìåíòà
+		p = h->prev;
+		if (h->prev != NULL)
+			p->next = h->next;
+		free(h);
 	}
 	return(p);
 }
 
 
-//Ôóíêöèÿ óäàëåíèÿ î÷åðåäè
+// Удаляем очередь
 template<typename T>
 void DeleteQueue(List<T> * first)
 {
 	List<T> * next = NULL;
-	//Ïîêà ïåðâûé ýëåìåíò íå áóäåò ðàâåí íóëþ, óäàëÿåì ýëåìåíòû î÷åðåäè
+	// Удаляем элементы, пока не обнулим первый
 	while (first != NULL)
 	{
-		next = first->next;					//Íàñòðîèëè óêàçàòåëü íà ïåðâûé ýëåìåíò
-		delete first;							//Óäàëèëè åãî
-		first = next;							//Ñëåäóþùèé ýëåìåíò ñòàë ïåðâûì
+		next = first->next;	// Выставим указатель на первый
+		delete first;		// Удаляем его
+		first = next;		// Следующий сдвигаем на первый
 	}
 }
 
 
-//Ôóíêöèÿ óäàëåíèÿ ñòýêà
+// Удаляем список
 template<typename T>
 void DeleteStack(List<T>* elemStack)
 {
 	List<T>* prev = NULL;
-	//Ïîêà ýëåìåíòû åñòü, óäàëÿåì èõ
 	while (elemStack != NULL)
 	{
-		prev = elemStack->prev;				//Íàñòðàèâàåì óêàçàòåëü íà ïðåäûäóùèé ýëåìåíò
-		delete elemStack;						//Óäàëÿåì åãî
-		elemStack = prev;						//Ïåðåõîäèì ê ñëåäóþùåìó ýëåìåíòó
+		prev = elemStack->prev;
+		delete elemStack;
+		elemStack = prev;
 	}
 }
