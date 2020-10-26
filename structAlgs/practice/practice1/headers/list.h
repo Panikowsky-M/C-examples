@@ -70,8 +70,7 @@ List<T> * PushFront(List<T> *lst, T t)
 }
 
 
-/*Ïîäïðîãðàììà, êîòîðàÿ âîçâðàùàåò
-óêàçàòåëü íà ïîñëåäíèé ýëåìåíò ñïèñêà.*/
+// Возврат элемента на последний элемент списка
 template<typename T>
 List<T>* Findend(List<T>* list)
 {
@@ -79,14 +78,13 @@ List<T>* Findend(List<T>* list)
 	K = NULL;
 	while (list != NULL)
 	{
-		K = list;					        //âîçâðàùàåì óêàçàòåëü íà ñëåäóþùèé ýëåìåíò.
+		K = list;            //Возвращаем указатель на следующий элемент.
 		list = list->next;
 	}
 	return K;
 }
 
-/*Ïîäïðîãðàììà, êîòîðàÿ âîçâðàùàåò
-óêàçàòåëü íà ïåðâûé ýëåìåíò ñïèñêà.*/
+//  Соответсвенно здесь возвращается первый элемент
 template<typename T>
 List<T>* FindHead(List<T>* list)
 {
@@ -94,20 +92,20 @@ List<T>* FindHead(List<T>* list)
 	K = NULL;
 	while (list != NULL)
 	{
-		K = list;					//âîçâðàùàåì óêàçàòåëü íà ïåðâûé ýëåìåíò.
+		K = list;   
 		list = list->prev;
 	}
 	return K;
 }
 
-/*Âûâîä ñïèñêà íà ýêðàí*/
+// Вывод списка на экран
 template<typename T>
 void OutputList(List<T>*first)
 {
 	List<T>* p = first;
-	if (p != NULL)                               //Ïðîâåðêà óêàçàòåëÿ.
+	if (p != NULL)        
 	{
-		while (p != NULL)                        //Âûâîä.
+		while (p != NULL) 
 		{
 			cout << p->key << " ";
 			p = p->next;

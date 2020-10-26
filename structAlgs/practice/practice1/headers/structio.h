@@ -19,7 +19,7 @@ void Output(T array, int r)
 template<typename T>
 void Input(T array, int length)
 {
-	cout << "Ââåäèòå çíà÷åíèÿ ýëåìåíòîâ ìàññèâà:\n";
+	cout << "Введите значения элементов массива:\n";
 	for (int i = 0; i < length; i++)           
 	{
 		cin >> array[i];
@@ -31,7 +31,7 @@ void Input(T array, int length)
 template<typename T>
 void InputChar(T array, int length)
 {
-	cout << "Ââåäèòå çíà÷åíèÿ ýëåìåíòîâ ìàññèâà:\n";
+	cout << "Введите значения элементов массива:\n";
 	for (int i = 0; i < length; i++) 
 	{
 		cin >> array[i];
